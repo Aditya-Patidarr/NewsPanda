@@ -23,10 +23,11 @@ const News = (props)=>{
     setPage(page+1)
     setTotalResults(parsedData.totalResults)
     props.setProgress(100);
-  }
+}
   useEffect(() => {
   document.title = `${capitalizeFirstLetter(props.category)} - NewsPanda`
     updateNews() ;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
   
@@ -56,7 +57,7 @@ const News = (props)=>{
           hasMore={articles.length!==totalResults}
           loader={<Spinner/>}
           endMessage={
-            <p style={{ textAlign: 'center' }}>
+            <p style={{ textAlign: 'center' }}> 
               <b>Yay! You have seen it all</b>
             </p>
           }
@@ -74,7 +75,7 @@ const News = (props)=>{
 )}
 
 News.defaultProps = {
-  country: "in",
+  country: "us",
   pageSize: 8,
   category: 'general'
 }
